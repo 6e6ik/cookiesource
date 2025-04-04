@@ -1926,12 +1926,7 @@ Game.Launch=function()
 	Game.ErrorFrame=function()
 	{
 		alert("cool bypass lol")
-		//l('offGameMessage').innerHTML='<div style="padding:64px 128px;"><div class="title">Loading...</div></div>';
-		Game.Loader=new Loader();
-		Game.Loader.domain=Game.resPath+'img/';
-		if (typeof PRELOAD!=='undefined') Game.Loader.loaded=PRELOAD(Game.Init);
-		else Game.Loader.loaded=callback;
-		Game.Loader.Load(['filler.png']);
+		Game.Init()
 	}
 	Game.timedout=false;
 	Game.Timeout=function()
