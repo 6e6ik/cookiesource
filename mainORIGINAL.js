@@ -1886,7 +1886,12 @@ Game.Launch=function()
 	Game.ErrorFrame=function()
 	{
 		console.log("error bypass lol");
-		Game.Load()
+		//l('offGameMessage').innerHTML='<div style="padding:64px 128px;"><div class="title">Loading...</div></div>';
+		Game.Loader=new Loader();
+		Game.Loader.domain='img/';
+		if (typeof PRELOAD!=='undefined') Game.Loader.loaded=PRELOAD(Game.Init);
+		else Game.Loader.loaded=Game.Init;
+		Game.Loader.Load(['filler.png']);
 	}
 	Game.timedout=false;
 	Game.Timeout=function()
