@@ -1926,6 +1926,7 @@ Game.Launch=function()
 	Game.ErrorFrame=function()
 	{
 		alert("cool bypass lol")
+		Game.Load()
 	}
 	Game.timedout=false;
 	Game.Timeout=function()
