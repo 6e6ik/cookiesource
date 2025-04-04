@@ -1886,6 +1886,7 @@ Game.Launch=function()
 	Game.ErrorFrame=function()
 	{
 		console.log("error bypass lol");
+		Game.Load()
 	}
 	Game.timedout=false;
 	Game.Timeout=function()
