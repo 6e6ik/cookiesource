@@ -1926,7 +1926,6 @@ Game.Launch=function()
 	Game.ErrorFrame=function()
 	{
 		alert("cool bypass lol")
-		Game.Init()
 	}
 	Game.timedout=false;
 	Game.Timeout=function()
@@ -16859,10 +16858,8 @@ window.onload=function()
 				LoadLang('loc/'+lang+'.js?v='+Game.version,function(){
 					var launch=function(){
 						Game.Launch();
-						if (top!=self) Game.ErrorFrame();
-						else
-						{
-							console.log('[=== '+choose([
+						if (top!=self) Game.ErrorFrame()
+						console.log('[=== '+choose([
 								'Oh, hello!',
 								'hey, how\'s it hangin',
 								'About to cheat in some cookies or just checking for bugs?',
@@ -16872,7 +16869,6 @@ window.onload=function()
 							Game.Load(function(){Game.Init();if (firstLaunch) Game.showLangSelection(true);});
 							//try {Game.Load(Game.Init);}
 							//catch(err) {console.log('ERROR : '+err.message);}
-						}
 					}
 					if (App && App.loadMods) App.loadMods(launch);
 					else launch();
