@@ -1885,13 +1885,7 @@ Game.Launch=function()
 	}
 	Game.ErrorFrame=function()
 	{
-		console.log("error bypass lol");
-		//l('offGameMessage').innerHTML='<div style="padding:64px 128px;"><div class="title">Loading...</div></div>';
-		Game.Loader=new Loader();
-		Game.Loader.domain='img/';
-		if (typeof PRELOAD!=='undefined') Game.Loader.loaded=PRELOAD(Game.Init);
-		else Game.Loader.loaded=Game.Init;
-		Game.Loader.Load(['filler.png']);
+		alert("Cool Bypass lol")
 	}
 	Game.timedout=false;
 	Game.Timeout=function()
@@ -15896,19 +15890,16 @@ window.onload=function()
 					var launch=function(){
 						Game.Launch();
 						if (top!=self) Game.ErrorFrame();
-						else
-						{
-							console.log('[=== '+choose([
+						console.log('[=== '+choose([
 								'Oh, hello!',
 								'hey, how\'s it hangin',
 								'About to cheat in some cookies or just checking for bugs?',
 								'Remember : cheated cookies taste awful!',
 								'Hey, Orteil here. Cheated cookies taste awful... or do they?',
 							])+' ===]');
-							Game.Load();
-							//try {Game.Load();}
-							//catch(err) {console.log('ERROR : '+err.message);}
-						}
+						Game.Load();
+						//try {Game.Load();}
+						//catch(err) {console.log('ERROR : '+err.message);}
 					}
 					if (App && App.loadMods) App.loadMods(launch);
 					else launch();
