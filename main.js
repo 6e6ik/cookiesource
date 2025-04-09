@@ -1923,10 +1923,7 @@ Game.Launch=function()
 		else Game.Loader.loaded=callback;
 		Game.Loader.Load(['filler.png']);
 	}
-	Game.ErrorFrame=function()
-	{
-		alert("cool bypass lol")
-	}
+	// Bye bye error frame
 	Game.timedout=false;
 	Game.Timeout=function()
 	{
