@@ -1883,10 +1883,7 @@ Game.Launch=function()
 		else Game.Loader.loaded=Game.Init;
 		Game.Loader.Load(['filler.png']);
 	}
-	Game.ErrorFrame=function()
-	{
-		alert("Cool Bypass lol")
-	}
+	// Nuh uh
 	Game.timedout=false;
 	Game.Timeout=function()
 	{
@@ -15889,7 +15886,6 @@ window.onload=function()
 				LoadLang('loc/'+lang+'.js?v='+Game.version,function(){
 					var launch=function(){
 						Game.Launch();
-						if (top!=self) Game.ErrorFrame();
 						console.log('[=== '+choose([
 								'Oh, hello!',
 								'hey, how\'s it hangin',
