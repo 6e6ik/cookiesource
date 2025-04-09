@@ -16866,9 +16866,9 @@ window.onload=function()
 								'Remember : cheated cookies taste awful!',
 								'Hey, Orteil here. Cheated cookies taste awful... or do they?',
 							])+' ===]');
-							Game.Load(function(){Game.Init();if (firstLaunch) Game.showLangSelection(true);});
-							//try {Game.Load(Game.Init);}
-							//catch(err) {console.log('ERROR : '+err.message);}
+						Game.Load(function(){Game.Init();if (firstLaunch) Game.showLangSelection(true);});
+						//try {Game.Load(Game.Init);}
+						//catch(err) {console.log('ERROR : '+err.message);}
 					}
 					if (App && App.loadMods) App.loadMods(launch);
 					else launch();
