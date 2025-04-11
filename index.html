@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <!--<link href="https://fonts.googleapis.com/css?family=Kavoon&subset=latin,latin-ext" rel="stylesheet" type="text/css">-->
@@ -145,6 +145,21 @@ var App=typeof App==='undefined'?0:App;
 				<div id="cookieNumbers"></div>
 			</div>
 			<div id="sectionLeftExtra"></div>
+			<button id="autoclickButton" style="
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			transform: translate(-50%);
+			border-radius: 8px;
+			background-color: rgba(0, 0, 0, 0.453);
+			border: solid 1px red;
+			color: red;
+			z-index: 1000;
+			width: 180px;
+			height: 40px;
+			" onclick="toggleFarm()">
+			Autofarm [OFF]
+			</button>
 		</div>
 
 		<div class="separatorLeft" id="leftBeam"></div>
@@ -218,28 +233,6 @@ var App=typeof App==='undefined'?0:App;
 			<div id="support" style="margin-top:130px;">
 				<!--<div class="supportComment">v Sponsored links v</div>-->
 				<div style="position:relative;">
-			<script>
-			function loadMod() {
-			  /* Get the text field */
-			  var copyText = document.getElementById("modLoader");
-			
-			  /* Select the text field */
-			  copyText.select();
-			  copyText.setSelectionRange(0, 99999); /* For mobile devices */
-			 
-			  /* Sends you to the link */
-			  window.location.href = copyText.value;
-			}
-			</script>
-			<!-- The button used to copy the text -->
-			<button onclick="loadMod()">Load</button>
-			<!-- The text field -->
-			<input style="position= absolute;" type="text" value="" id="modLoader">
-			<!-- The text field -->
-			<br>
-			<div style="width:300px;text-align:center;padding:8px 0px;background:rgba(0,0,0,0);font-size:15px;opacity:0.5;text-shadow:0px 0px 2px #000,0px 1px 0px #000;text-align:center;">
-				Paste a bookmark addon into here<br>and press the button to load the mod.<br>DONT DO A LINK! Or you will leave the site.
-			</div>
 				
 				
 					<div style="position:relative;z-index:100;min-height:250px;">
@@ -295,6 +288,39 @@ var App=typeof App==='undefined'?0:App;
 	</div>
 
 </div>
+
+<script>
+	var enabled = false;
+	var autoclicker = null;
+
+	function toggleFarm(){
+		enabled = !enabled;
+		if (enabled) {
+			document.getElementById("autoclickButton").innerHTML = "Autofarm [ON]";
+			document.getElementById("autoclickButton").style.color = "lime";
+			document.getElementById("autoclickButton").style.border = "solid 1px lime";
+
+			autoclicker = setInterval(function(){ 
+				try { Game.lastClick -= 1000; 
+					document.getElementById('bigCookie').click(); 
+				} catch (err) { 
+					console.error('Stopping auto clicker');
+					clearInterval(autoclicker); 
+					autoclicker = null;
+				} 
+			}, 1);
+		} else {
+			document.getElementById("autoclickButton").innerHTML = "Autofarm [OFF]";
+			document.getElementById("autoclickButton").style.color = "red";
+			document.getElementById("autoclickButton").style.border = "solid 1px red";
+
+			if (autoclicker != null) {
+				clearInterval(autoclicker);
+				autoclicker = null;
+			}
+		}
+	}
+</script>
 
 </body>
 </html>
